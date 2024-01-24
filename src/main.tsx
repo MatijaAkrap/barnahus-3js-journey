@@ -2,7 +2,6 @@ import { Canvas } from '@react-three/fiber'
 import { Leva } from 'leva'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ACESFilmicToneMapping, sRGBEncoding } from 'three'
 import { Scene } from './Scene'
 import './styles/main.css'
 
@@ -22,21 +21,7 @@ function Main() {
           },
         }}
       />
-      <Canvas
-        dpr={[1, 2]}
-        gl={{
-          antialias: true,
-          toneMapping: ACESFilmicToneMapping,
-          outputEncoding: sRGBEncoding,
-        }}
-        camera={{
-          fov: 55,
-          near: 0.1,
-          far: 200,
-          position: [3, 2, 9],
-        }}
-        shadows
-      >
+      <Canvas>
         <Scene />
       </Canvas>
     </div>
