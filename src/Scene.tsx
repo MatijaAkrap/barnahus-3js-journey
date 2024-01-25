@@ -74,7 +74,13 @@ function Scene() {
         maxDistance={5.9}
         enableZoom={true}
       />
-      <PerspectiveCamera position={[4, 0, 4.4]} near={1} far={50} fov={controls.fov} />
+      <PerspectiveCamera
+        makeDefault
+        position={[4, 0, 4.4]}
+        near={1}
+        far={50}
+        fov={controls.fov}
+      />
       {!controls.bakedShadows ? (
         <>
           <ambientLight intensity={0.8} />
