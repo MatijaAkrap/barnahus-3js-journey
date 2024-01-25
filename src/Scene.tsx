@@ -1,4 +1,4 @@
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { OrbitControls, OrthographicCamera, useGLTF } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { useMemo } from 'react'
@@ -17,6 +17,11 @@ function Scene() {
       step: 0.5,
     },
   })
+
+  const BakedTexture = useLoader(TextureLoader, './textures/waitingRoom3to9_Baked.png')
+  BakedTexture.flipY = false
+  const BakedMaterial = useMemo(() => new MeshBasicMaterial({ map: BakedTexture }), [])
+
   const bezierCurveBakedTexture = useLoader(
     TextureLoader,
     './textures/waitingRoom3to9_Baked1.png'
@@ -26,6 +31,7 @@ function Scene() {
     () => new MeshBasicMaterial({ map: bezierCurveBakedTexture }),
     []
   )
+
   const cubeCurveBakedTexture = useLoader(
     TextureLoader,
     './textures/waitingRoom3to9_Baked2.png'
@@ -35,6 +41,7 @@ function Scene() {
     () => new MeshBasicMaterial({ map: cubeCurveBakedTexture }),
     []
   )
+
   const cylinderCurveBakedTexture = useLoader(
     TextureLoader,
     './textures/waitingRoom3to9_Baked3.png'
@@ -45,20 +52,21 @@ function Scene() {
     []
   )
 
-  const waitingRoom3to9 = useLoader(GLTFLoader, './scene/waitingRoom3to9.glb')
+  const waitingRoom3to9 = useLoader(GLTFLoader, './scene/waitingRoom3to92.glb')
 
-  const waitingRoom3to9WithoutBakedTexture: any = useGLTF('./scene/waitingRoom3to9.glb')
+  const waitingRoom3to9WithoutBakedTexture: any = useGLTF('./scene/waitingRoom3to92.glb')
+  console.log(waitingRoom3to9WithoutBakedTexture)
 
   const applyBakedMaterial = (object: any) => {
     object.traverse((child: any) => {
-      if (child.isMesh && child.name.includes('BezierCurve')) {
-        child.material = bezierCurveBakedMaterial
-      }
-      if (child.isMesh && child.name.includes('Cube')) {
-        child.material = cubeCurveBakedMaterial
-      }
+      // if (child.isMesh && child.name.includes('BezierCurve')) {
+      //   child.material = bezierCurveBakedMaterial
+      // }
+      // if (child.isMesh && child.name.includes('Cube')) {
+      //   child.material = cubeCurveBakedMaterial
+      // }
       if (child.isMesh && child.name.includes('Cylinder')) {
-        child.material = cylinderCurveBakedMaterial
+        child.material = BakedMaterial
       }
     })
   }
@@ -72,7 +80,6 @@ function Scene() {
         minPolarAngle={Math.PI / 2.1}
         maxPolarAngle={Math.PI / 2.1}
         maxDistance={5.9}
-        enableZoom={true}
       />
       <PerspectiveCamera
         makeDefault
@@ -81,6 +88,12 @@ function Scene() {
         far={50}
         fov={controls.fov}
       />
+      {/* <OrthographicCamera
+        makeDefault
+        position={[4, 0, 4.4]}
+        near={1}
+        far={50}
+      /> */}
       {!controls.bakedShadows ? (
         <>
           <ambientLight intensity={0.8} />
@@ -99,4 +112,4 @@ function Scene() {
 
 export { Scene }
 
-useGLTF.preload('./scene/waitingRoom3to9.glb')
+useGLTF.preload('./scene/waitingRoom3to92.glb')
