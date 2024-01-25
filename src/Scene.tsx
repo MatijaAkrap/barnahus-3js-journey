@@ -9,7 +9,13 @@ import { useControls } from 'leva'
 
 function Scene() {
   const controls = useControls({
-    bakedShadows: true,
+    bakedShadows: false,
+    fov: {
+      value: 50,
+      min: 10,
+      max: 100,
+      step: 0.5,
+    },
   })
   const bezierCurveBakedTexture = useLoader(
     TextureLoader,
@@ -65,25 +71,14 @@ function Scene() {
         makeDefault
         minPolarAngle={Math.PI / 2.1}
         maxPolarAngle={Math.PI / 2.1}
-        enableZoom={false}
+        maxDistance={5.9}
+        enableZoom={true}
       />
-      <PerspectiveCamera makeDefault position={[4, 0, 4.4]} near={1} far={50} fov={75} />
+      <PerspectiveCamera position={[4, 0, 4.4]} near={1} far={50} fov={controls.fov} />
       {!controls.bakedShadows ? (
         <>
           <ambientLight intensity={0.8} />
-          <directionalLight
-            castShadow
-            position={[7, 5, 6]}
-            intensity={1.15}
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
-            shadow-camera-near={6}
-            shadow-camera-far={10}
-            shadow-camera-top={2}
-            shadow-camera-bottom={-2}
-            shadow-camera-left={-2}
-            shadow-camera-right={2}
-          />
+          <directionalLight castShadow position={[7, 5, 6]} intensity={1.15} />
           <primitive
             position={[0, -2.2, 0]}
             object={waitingRoom3to9WithoutBakedTexture.scene}
