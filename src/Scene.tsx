@@ -1,4 +1,4 @@
-import { OrbitControls, useGLTF, useTexture } from '@react-three/drei'
+import { OrbitControls, OrthographicCamera, useGLTF, useTexture } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import { PerspectiveCamera } from '@react-three/drei'
 import { useControls } from 'leva'
@@ -13,7 +13,7 @@ function Scene() {
     },
   })
 
-  const bakedTexture = useTexture('./textures/waitingRoom3to9_Baked.png')
+  const bakedTexture = useTexture('./textures/waitingRoom3to9_baked2.png')
   bakedTexture.flipY = false
   const { nodes }: any = useGLTF('./scene/waitingRoom3to9.glb')
 
@@ -33,7 +33,16 @@ function Scene() {
         far={50}
         fov={controls.fov}
       />
+      {/* <OrthographicCamera
+        makeDefault
+        // position={[4, 0, 4.4]}
+        position={[0, 0, 0]}
+        // near={1}
+        far={50}
+        // fov={controls.fov}
+      /> */}
       <mesh
+        // position={[0.2, 1, 7.5]}
         position={[0.2, 1, 7.5]}
         rotation-z={300.02}
         rotation-y={-300}
