@@ -18,11 +18,11 @@ function WaitingRoom3to9() {
   const applyBakedMaterial = (object: any) => {
     object.traverse((child: any) => {
       if (child.isMesh) {
-        if (child.name.includes('Cube067')) {
+        if (child.name.includes('Cube524')) {
           child.material = BakedMaterial1
-        } else if (child.name.includes('Cube435')) {
+        } else if (child.name.includes('Cube2358')) {
           child.material = BakedMaterial2
-        } else if (child.name.includes('Cube2488')) {
+        } else if (child.name.includes('Cylinder1029')) {
           child.material = BakedMaterial3
         }
         child.material.toneMapped = false
