@@ -3,7 +3,7 @@ import { Perf } from 'r3f-perf'
 import { PerspectiveCamera } from '@react-three/drei'
 import { WaitingRoom3to9 } from './models/WaitingRoom3to9'
 import { Routes, Route } from 'react-router-dom'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
 import { useFrame } from '@react-three/fiber'
 import { useControls } from 'leva'
@@ -13,14 +13,15 @@ import { WaitingRoom10to17 } from './models/WaitingRoom10to17'
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
   const cameraRef = useRef<any>(null)
-  const navigate = useNavigate()
+  const [room, setRoom] = useState('/waitingRoom3to9')
+  // const navigate = useNavigate()
 
   useControls({
     Room: {
       value: '/waitingRoom3to9',
       options: ['/waitingRoom3to9', '/waitingRoom10to17'],
       onChange: (value) => {
-        navigate(value)
+        setRoom(value)
       },
     },
   })
@@ -59,11 +60,14 @@ const Experience = () => {
         far={50}
         ref={cameraRef}
       />
-      <Routes>
+      {room === '/waitingRoom3to9' && <WaitingRoom3to9 />}
+      {room === '/waitingRoom10to17' && <WaitingRoom10to17 />}
+      {}
+      {/* <Routes>
         <Route path='/' element={<WaitingRoom3to9 />} />
         <Route path='/waitingRoom3to9' element={<WaitingRoom3to9 />} />
         <Route path='/waitingRoom10to17' element={<WaitingRoom10to17 />} />
-      </Routes>
+      </Routes> */}
     </>
   )
 }
