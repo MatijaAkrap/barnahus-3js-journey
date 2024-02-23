@@ -65,9 +65,9 @@ import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
 import { useFrame } from '@react-three/fiber'
 
 function WaitingRoom3to9() {
-  const bakedTexture = useTexture('./textures/All.png')
+  const bakedTexture = useTexture('./textures/waitingRoom3to9.jpg')
   bakedTexture.flipY = false
-  const { nodes }: any = useGLTF('./scene/waitingRoom3to9_1.glb')
+  const { nodes }: any = useGLTF('./scene/waitingRoom3to9.glb')
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
   const cameraRef = useRef<any>(null)
 
@@ -88,6 +88,7 @@ function WaitingRoom3to9() {
     }
   })
 
+  console.log('testest', nodes)
   return (
     <>
       <Perf position='top-left' />
@@ -110,7 +111,7 @@ function WaitingRoom3to9() {
         // position={[0.2, 1, 7.5]}
         // rotation-z={300.02}
         // rotation-y={-300}
-        geometry={nodes.Cube2420.geometry}
+        geometry={nodes.Cube524.geometry}
       >
         <meshBasicMaterial map={bakedTexture} />
       </mesh>
