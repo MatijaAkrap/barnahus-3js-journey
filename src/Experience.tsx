@@ -23,7 +23,13 @@ const Experience = () => {
         // navigate(value)
       },
     },
-    CameraOnCenter: true,
+    CameraOnCenter: {
+      label: 'Camera position',
+      value: 0.5,
+      min: 0,
+      max: 6,
+      step: 0.01,
+    },
   })
 
   useFrame(() => {
@@ -57,7 +63,7 @@ const Experience = () => {
       <PerspectiveCamera
         makeDefault
         // position={[4, 0, 4.4]}
-        position={CameraOnCenter ? [0, 0, 1] : [0, 0, 4.4]}
+        position={[0, 0, CameraOnCenter]}
         near={1}
         far={50}
         ref={cameraRef}
