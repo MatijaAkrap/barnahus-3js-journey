@@ -6,7 +6,7 @@ function WaitingRoom10to17() {
   const { nodes }: any = useGLTF('./scene/waitingRoom10to17.glb')
 
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube987.geometry}>
+    <mesh position={[0, -2, 0]} geometry={nodes.Cube998.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )

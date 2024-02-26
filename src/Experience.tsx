@@ -7,6 +7,7 @@ import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
 import { useFrame } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { WaitingRoom10to17 } from './models/WaitingRoom10to17'
+import { TherapyRoom3to9 } from './models/TherapyRoom3to9'
 
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
@@ -14,21 +15,28 @@ const Experience = () => {
   const [room, setRoom] = useState('/waitingRoom3to9')
   // const navigate = useNavigate()
 
-  const { CameraOnCenter } = useControls({
-    Room: {
-      value: '/waitingRoom3to9',
-      options: ['/waitingRoom3to9', '/waitingRoom10to17'],
-      onChange: (value) => {
-        setRoom(value)
-        // navigate(value)
-      },
+  const cameraPostionControls = useControls('Camera position controls', {
+    EnebleCameraPositionControl: {
+      label: 'Eneble',
+      value: false,
     },
     CameraOnCenter: {
-      label: 'Camera position',
+      label: 'Position',
       value: 0.5,
       min: 0,
       max: 6,
       step: 0.01,
+    },
+  })
+
+  useControls({
+    Room: {
+      value: '/waitingRoom3to9',
+      options: ['/waitingRoom3to9', '/waitingRoom10to17', '/therapyRoom3to9'],
+      onChange: (value) => {
+        setRoom(value)
+        // navigate(value)
+      },
     },
   })
 
@@ -63,14 +71,18 @@ const Experience = () => {
       <PerspectiveCamera
         makeDefault
         // position={[4, 0, 4.4]}
-        position={[0, 0, CameraOnCenter]}
+        position={
+          cameraPostionControls.EnebleCameraPositionControl
+            ? [0, 0, cameraPostionControls.CameraOnCenter]
+            : [4, 0, 4.4]
+        }
         near={1}
         far={50}
         ref={cameraRef}
       />
       {room === '/waitingRoom3to9' && <WaitingRoom3to9 />}
       {room === '/waitingRoom10to17' && <WaitingRoom10to17 />}
-      {}
+      {room === '/therapyRoom3to9' && <TherapyRoom3to9 />}
       {/* <Routes>
         <Route path='/' element={<WaitingRoom3to9 />} />
         <Route path='/waitingRoom3to9' element={<WaitingRoom3to9 />} />
