@@ -64,8 +64,9 @@ function WaitingRoom3to9() {
   bakedTexture.flipY = false
   const { nodes }: any = useGLTF('./scene/waitingRoom3to9.glb')
 
+  console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube524.geometry}>
+    <mesh position={[0, -2, 0]} geometry={nodes.Cube938.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )

@@ -2,12 +2,10 @@ import { OrbitControls } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 import { PerspectiveCamera } from '@react-three/drei'
 import { WaitingRoom3to9 } from './models/WaitingRoom3to9'
-import { Routes, Route } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
 import { useFrame } from '@react-three/fiber'
 import { useControls } from 'leva'
-import { useNavigate } from 'react-router-dom'
 import { WaitingRoom10to17 } from './models/WaitingRoom10to17'
 
 const Experience = () => {
@@ -22,6 +20,7 @@ const Experience = () => {
       options: ['/waitingRoom3to9', '/waitingRoom10to17'],
       onChange: (value) => {
         setRoom(value)
+        // navigate(value)
       },
     },
   })
