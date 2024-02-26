@@ -51,7 +51,7 @@ const Experience = () => {
         minPolarAngle={Math.PI / 2.1}
         maxPolarAngle={Math.PI / 2.1}
         maxDistance={5.9}
-        rotateSpeed={-1}
+        rotateSpeed={-0.3}
         ref={orbitControlsRef}
       />
       <PerspectiveCamera
