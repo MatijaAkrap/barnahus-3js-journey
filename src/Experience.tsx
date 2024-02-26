@@ -14,7 +14,7 @@ const Experience = () => {
   const [room, setRoom] = useState('/waitingRoom3to9')
   // const navigate = useNavigate()
 
-  useControls({
+  const { CameraOnCenter } = useControls({
     Room: {
       value: '/waitingRoom3to9',
       options: ['/waitingRoom3to9', '/waitingRoom10to17'],
@@ -23,6 +23,7 @@ const Experience = () => {
         // navigate(value)
       },
     },
+    CameraOnCenter: true,
   })
 
   useFrame(() => {
@@ -50,11 +51,13 @@ const Experience = () => {
         minPolarAngle={Math.PI / 2.1}
         maxPolarAngle={Math.PI / 2.1}
         maxDistance={5.9}
+        rotateSpeed={-1}
         ref={orbitControlsRef}
       />
       <PerspectiveCamera
         makeDefault
-        position={[4, 0, 4.4]}
+        // position={[4, 0, 4.4]}
+        position={CameraOnCenter ? [0, 0, 1] : [0, 0, 4.4]}
         near={1}
         far={50}
         ref={cameraRef}
