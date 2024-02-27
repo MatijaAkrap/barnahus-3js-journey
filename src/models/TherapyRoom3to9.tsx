@@ -7,7 +7,7 @@ function TherapyRoom3to9() {
 
   console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube956.geometry}>
+    <mesh position={[0, -2, 0]} geometry={nodes.Cube975.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )

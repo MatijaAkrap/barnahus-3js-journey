@@ -8,6 +8,7 @@ import { useFrame } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { WaitingRoom10to17 } from './models/WaitingRoom10to17'
 import { TherapyRoom3to9 } from './models/TherapyRoom3to9'
+import { TherapyRoom10to17 } from './models/TherapyRoom10to17'
 
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
@@ -32,7 +33,12 @@ const Experience = () => {
   useControls({
     Room: {
       value: '/waitingRoom3to9',
-      options: ['/waitingRoom3to9', '/waitingRoom10to17', '/therapyRoom3to9'],
+      options: [
+        '/waitingRoom3to9',
+        '/waitingRoom10to17',
+        '/therapyRoom3to9',
+        '/therapyRoom10to17',
+      ],
       onChange: (value) => {
         setRoom(value)
         // navigate(value)
@@ -83,6 +89,7 @@ const Experience = () => {
       {room === '/waitingRoom3to9' && <WaitingRoom3to9 />}
       {room === '/waitingRoom10to17' && <WaitingRoom10to17 />}
       {room === '/therapyRoom3to9' && <TherapyRoom3to9 />}
+      {room === '/therapyRoom10to17' && <TherapyRoom10to17 />}
       {/* <Routes>
         <Route path='/' element={<WaitingRoom3to9 />} />
         <Route path='/waitingRoom3to9' element={<WaitingRoom3to9 />} />
