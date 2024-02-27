@@ -5,7 +5,6 @@ function TherapyRoom3to9() {
   bakedTexture.flipY = false
   const { nodes }: any = useGLTF('./scene/therapyRoom3to9.glb')
 
-  console.log('nodes', nodes)
   return (
     <mesh position={[0, -2, 0]} geometry={nodes.Cube975.geometry}>
       <meshBasicMaterial map={bakedTexture} />
