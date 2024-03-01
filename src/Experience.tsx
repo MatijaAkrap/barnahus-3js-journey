@@ -13,6 +13,7 @@ import { MedicalRoom3to9 } from './models/MedicalRoom3to9'
 import { MedicalRoom10to17 } from './models/MedicalRoom10to17'
 import { InterviewRoom3to9 } from './models/InterviewRoom3to9'
 import { InterviewRoom10to17 } from './models/InterviewRoom10to17'
+import { ObservationRoom } from './models/ObservationRoom'
 
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
@@ -46,6 +47,7 @@ const Experience = () => {
         '/medicalRoom10to17',
         '/interviewRoom3to9',
         '/interviewRoom10to17',
+        '/observationRoom',
       ],
       onChange: (value) => {
         setRoom(value)
@@ -102,6 +104,7 @@ const Experience = () => {
       {room === '/medicalRoom10to17' && <MedicalRoom10to17 />}
       {room === '/interviewRoom3to9' && <InterviewRoom3to9 />}
       {room === '/interviewRoom10to17' && <InterviewRoom10to17 />}
+      {room === '/observationRoom' && <ObservationRoom />}
       {/* <Routes>
         <Route path='/' element={<WaitingRoom3to9 />} />
         <Route path='/waitingRoom3to9' element={<WaitingRoom3to9 />} />
