@@ -30,7 +30,7 @@ const Experience = () => {
       label: 'Position',
       value: 0.5,
       min: 0,
-      max: 6,
+      max: 16,
       step: 0.01,
     },
   })
@@ -80,7 +80,7 @@ const Experience = () => {
         makeDefault
         minPolarAngle={Math.PI / 2.1}
         maxPolarAngle={Math.PI / 2.1}
-        maxDistance={5.9}
+        maxDistance={room === '/observationRoom' ? 7.9 : 5.9}
         rotateSpeed={-0.3}
         ref={orbitControlsRef}
       />
@@ -90,7 +90,7 @@ const Experience = () => {
         position={
           cameraPostionControls.EnebleCameraPositionControl
             ? [0, 0, cameraPostionControls.CameraOnCenter]
-            : [4, 0, 4.4]
+            : [4, 0, room === '/observationRoom' ? 6.9 : 4.4]
         }
         near={1}
         far={50}
