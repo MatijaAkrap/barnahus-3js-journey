@@ -7,7 +7,7 @@ function ObservationRoom() {
 
   console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2.7, 0]} geometry={nodes.Cube2874.geometry}>
+    <mesh position={[0, -2.7, 0]} geometry={nodes.Cube2870.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )

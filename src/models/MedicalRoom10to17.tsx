@@ -7,7 +7,7 @@ function MedicalRoom10to17() {
 
   console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube2956.geometry}>
+    <mesh position={[0, -2, 0]} geometry={nodes.Cube3118.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )

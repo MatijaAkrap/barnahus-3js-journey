@@ -7,7 +7,7 @@ function InterviewRoom10to17() {
 
   console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube996.geometry}>
+    <mesh position={[0, -2, 0]} geometry={nodes.Cube3125.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )
