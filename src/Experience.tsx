@@ -14,6 +14,7 @@ import { MedicalRoom10to17 } from './models/MedicalRoom10to17'
 import { InterviewRoom3to9 } from './models/InterviewRoom3to9'
 import { InterviewRoom10to17 } from './models/InterviewRoom10to17'
 import { ObservationRoom } from './models/ObservationRoom'
+import MascotBreathingExciresize from './models/MascotBreathingExciresize'
 
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
@@ -48,6 +49,7 @@ const Experience = () => {
         '/interviewRoom3to9',
         '/interviewRoom10to17',
         '/observationRoom',
+        '/mascotBreathingExciresize',
       ],
       onChange: (value) => {
         setRoom(value)
@@ -80,18 +82,25 @@ const Experience = () => {
         makeDefault
         minPolarAngle={Math.PI / 2.1}
         maxPolarAngle={Math.PI / 2.1}
+        enableRotate={room !== '/mascotBreathingExciresize'}
         maxDistance={room === '/observationRoom' ? 7.9 : 5.9}
         rotateSpeed={-0.3}
         ref={orbitControlsRef}
       />
       <PerspectiveCamera
         makeDefault
-        // position={[4, 0, 4.4]}
         position={
-          cameraPostionControls.EnebleCameraPositionControl
+          room === '/mascotBreathingExciresize'
+            ? [0, 0, 4]
+            : cameraPostionControls.EnebleCameraPositionControl
             ? [0, 0, cameraPostionControls.CameraOnCenter]
             : [4, 0, room === '/observationRoom' ? 6.9 : 4.4]
         }
+        // position={
+        //   cameraPostionControls.EnebleCameraPositionControl
+        //     ? [0, 0, cameraPostionControls.CameraOnCenter]
+        //     : [4, 0, room === '/observationRoom' ? 6.9 : 4.4]
+        // }
         near={1}
         far={50}
         ref={cameraRef}
@@ -105,6 +114,7 @@ const Experience = () => {
       {room === '/interviewRoom3to9' && <InterviewRoom3to9 />}
       {room === '/interviewRoom10to17' && <InterviewRoom10to17 />}
       {room === '/observationRoom' && <ObservationRoom />}
+      {room === '/mascotBreathingExciresize' && <MascotBreathingExciresize />}
       {/* <Routes>
         <Route path='/' element={<WaitingRoom3to9 />} />
         <Route path='/waitingRoom3to9' element={<WaitingRoom3to9 />} />
