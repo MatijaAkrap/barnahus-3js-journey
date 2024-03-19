@@ -7,7 +7,7 @@ function WaitingRoom10to17() {
 
   console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube2922.geometry}>
+    <mesh position={[0, -2, 0]} geometry={nodes.Cube3179.geometry}>
       <meshBasicMaterial map={bakedTexture} />
     </mesh>
   )
