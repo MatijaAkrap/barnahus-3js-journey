@@ -18,11 +18,12 @@ const MascotBreathingExciresize = () => {
 
   useEffect(() => {
     // if (expirenceStarted) {
-    const actionsMascotBreathingExciresize =
-      animationsMascotBreathingExciresize.actions['Mascot.003']
+    const actionsMascotBreathingExciresize = Object.values(
+      animationsMascotBreathingExciresize.actions
+    )[0]
     actionsMascotBreathingExciresize?.play()
 
-    const actionsMascotRoom = animationsMascotRoom.actions['Armature.003Action']
+    const actionsMascotRoom = Object.values(animationsMascotRoom.actions)[0]
     actionsMascotRoom?.play()
 
     const actionsFox = animationsFox.actions['Run']
