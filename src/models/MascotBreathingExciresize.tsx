@@ -62,15 +62,15 @@ const MascotBreathingExciresize = () => {
     // }
   }, [])
 
-  mascotBreathingExciresize.materials['Mascot Face - Breathing'].colorWrite = true
-  mascotBreathingExciresize.materials['Mascot White.001'].colorWrite = true
-  console.log(
-    'Mascot Face - Breathing',
-    mascotBreathingExciresize.materials['Mascot Face - Breathing']
-  )
-  console.log('Mascot Face - Breathing', mascotBreathingExciresize)
-  console.log('Mascot White.001', mascotBreathingExciresize.materials['Mascot White.001'])
-  console.log('Mascot White.001', mascotBreathingExciresize)
+  // mascotBreathingExciresize.materials['Mascot Face - Breathing'].colorWrite = true
+  mascotRoom.materials['Mascot White.001'].visible = true
+  // console.log(
+  //   'Mascot Face - Breathing',
+  //   mascotBreathingExciresize.materials['Mascot Face - Breathing']
+  // )
+  console.log('Mascot Face - Breathing', mascotRoom)
+  // console.log('Mascot White.001', mascotBreathingExciresize.materials['Mascot White.001'])
+  // console.log('Mascot White.001', mascotBreathingExciresize)
   return (
     <>
       <ambientLight intensity={2} />
@@ -80,17 +80,17 @@ const MascotBreathingExciresize = () => {
         // position={[0, -10, -120]}
         object={mascotRoom.scene}
       />
-      <primitive
+      {/* <primitive
         scale={0.2}
         position={[1, -1, 0]}
         object={mascotBreathingExciresize.scene}
-      />
-      <primitive
+      /> */}
+      {/* <primitive
         scale={0.02}
         position={[-1, -1, 0]}
         rotation-y={-0.31}
         object={fox.scene}
-      />
+      /> */}
       {/* <primitive object={fox.scene} scale={0.02} position={[0, 0, 0]} rotation-y={0.3} /> */}
       <mesh scale={0.8} position={[0, -3, 0]} geometry={nodes.Plane694.geometry}>
         <meshBasicMaterial map={bakedTexture} />
