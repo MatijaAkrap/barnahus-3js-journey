@@ -62,10 +62,18 @@ const MascotBreathingExciresize = () => {
     // }
   }, [])
 
-  // console.log('mascotBreathingExciresize', mascotBreathingExciresize)
+  mascotBreathingExciresize.materials['Mascot Face - Breathing'].colorWrite = true
+  mascotBreathingExciresize.materials['Mascot White.001'].colorWrite = true
+  console.log(
+    'Mascot Face - Breathing',
+    mascotBreathingExciresize.materials['Mascot Face - Breathing']
+  )
+  console.log('Mascot Face - Breathing', mascotBreathingExciresize)
+  console.log('Mascot White.001', mascotBreathingExciresize.materials['Mascot White.001'])
+  console.log('Mascot White.001', mascotBreathingExciresize)
   return (
     <>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={2} />
       {/* <pointLight castShadow intensity={0.05} /> */}
       <primitive
         scale={0.2}
