@@ -23,11 +23,16 @@ const MascotBreathingExciresize = () => {
     )[0]
     actionsMascotBreathingExciresize?.play()
 
-    const actionsMascotRoom = Object.values(animationsMascotRoom.actions)[0]
+    // const actionsMascotRoom = Object.values(animationsMascotRoom.actions)[0]
+    const actionsMascotRoom = animationsMascotRoom.actions['Armature.003Action.003']
     actionsMascotRoom?.play()
-    const actionsMascotRoom2 = Object.values(animationsMascotRoom.actions)[1]
+    // const actionsMascotRoom2 = Object.values(animationsMascotRoom.actions)[1]
+    // actionsMascotRoom2?.play()
+    const actionsMascotRoom2 = animationsMascotRoom.actions['Mascot.005Action']
     actionsMascotRoom2?.play()
-    const actionsMascotRoom3 = Object.values(animationsMascotRoom.actions)[2]
+    // const actionsMascotRoom3 = Object.values(animationsMascotRoom.actions)[2]
+    // actionsMascotRoom3?.play()
+    const actionsMascotRoom3 = animationsMascotRoom.actions['Mascot.006Action']
     actionsMascotRoom3?.play()
 
     const actionsFox = animationsFox.actions['Run']
@@ -77,7 +82,7 @@ const MascotBreathingExciresize = () => {
   // console.log('Mascot White.001', mascotBreathingExciresize)
   return (
     <>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={2} />
       {/* <pointLight castShadow intensity={0.05} /> */}
       <primitive
         scale={0.2}
