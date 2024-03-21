@@ -23,17 +23,10 @@ const MascotBreathingExciresize = () => {
     )[0]
     actionsMascotBreathingExciresize?.play()
 
-    // const actionsMascotRoom = Object.values(animationsMascotRoom.actions)[0]
-    const actionsMascotRoom = animationsMascotRoom.actions['Armature.003Action.003']
-    actionsMascotRoom?.play()
-    // const actionsMascotRoom2 = Object.values(animationsMascotRoom.actions)[1]
-    // actionsMascotRoom2?.play()
-    const actionsMascotRoom2 = animationsMascotRoom.actions['Mascot.005Action']
+    const actionsMascotRoom = Object.values(animationsMascotRoom.actions)[0]
+    actionsMascotRoom?.reset().play()
+    const actionsMascotRoom2 = Object.values(animationsMascotRoom.actions)[1]
     actionsMascotRoom2?.play()
-    // const actionsMascotRoom3 = Object.values(animationsMascotRoom.actions)[2]
-    // actionsMascotRoom3?.play()
-    const actionsMascotRoom3 = animationsMascotRoom.actions['Mascot.006Action']
-    actionsMascotRoom3?.play()
 
     const actionsFox = animationsFox.actions['Run']
     actionsFox?.play()
