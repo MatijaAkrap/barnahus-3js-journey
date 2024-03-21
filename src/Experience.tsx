@@ -19,7 +19,7 @@ import MascotBreathingExciresize from './models/MascotBreathingExciresize'
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
   const cameraRef = useRef<any>(null)
-  const [room, setRoom] = useState('/mascotBreathingExciresize')
+  const [room, setRoom] = useState('/waitingRoom3to9')
   // const navigate = useNavigate()
 
   const cameraPostionControls = useControls('Camera position controls', {
@@ -38,7 +38,7 @@ const Experience = () => {
 
   useControls({
     Room: {
-      value: '/mascotBreathingExciresize',
+      value: '/waitingRoom3to9',
       options: [
         '/waitingRoom3to9',
         '/waitingRoom10to17',
