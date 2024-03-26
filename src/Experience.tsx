@@ -20,7 +20,7 @@ import { useLocation } from 'react-router-dom'
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
   const cameraRef = useRef<any>(null)
-  const [room, setRoom] = useState('/waitingRoom3to9')
+  const [room, setRoom] = useState('/mascotBreathingExciresize')
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
   const roomId = searchParams.get('roomId')
