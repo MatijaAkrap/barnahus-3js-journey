@@ -23,10 +23,19 @@ const MascotBreathingExciresize = () => {
     )[0]
     actionsMascotBreathingExciresize?.play()
 
-    const actionsMascotRoom = Object.values(animationsMascotRoom.actions)[0]
-    actionsMascotRoom?.reset().play()
-    const actionsMascotRoom2 = Object.values(animationsMascotRoom.actions)[1]
+    console.log('animationsMascotRoom', animationsMascotRoom)
+    const actionsMascotRoom = animationsMascotRoom.actions['Body']
+    actionsMascotRoom?.play()
+    const actionsMascotRoom2 = animationsMascotRoom.actions['Closed Eyes DownAction']
     actionsMascotRoom2?.play()
+    const actionsMascotRoom3 = animationsMascotRoom.actions['Ears']
+    actionsMascotRoom3?.play()
+    const actionsMascotRoom4 = animationsMascotRoom.actions['Body.004Action']
+    actionsMascotRoom4?.play()
+    const actionsMascotRoom5 = animationsMascotRoom.actions['Mouth Close']
+    actionsMascotRoom5?.play()
+    const actionsMascotRoom6 = animationsMascotRoom.actions['Tail']
+    actionsMascotRoom6?.play()
 
     const actionsFox = animationsFox.actions['Run']
     actionsFox?.play()

@@ -15,11 +15,16 @@ import { InterviewRoom3to9 } from './models/InterviewRoom3to9'
 import { InterviewRoom10to17 } from './models/InterviewRoom10to17'
 import { ObservationRoom } from './models/ObservationRoom'
 import MascotBreathingExciresize from './models/MascotBreathingExciresize'
+import { useLocation } from 'react-router-dom'
 
 const Experience = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
   const cameraRef = useRef<any>(null)
   const [room, setRoom] = useState('/waitingRoom3to9')
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  const roomId = searchParams.get('roomId')
+  const ageGroup = searchParams.get('ageGroup')
   // const navigate = useNavigate()
 
   const cameraPostionControls = useControls('Camera position controls', {
@@ -38,7 +43,7 @@ const Experience = () => {
 
   useControls({
     Room: {
-      value: '/waitingRoom3to9',
+      value: '/mascotBreathingExciresize',
       options: [
         '/waitingRoom3to9',
         '/waitingRoom10to17',

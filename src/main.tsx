@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <div className='main'>
       <BrowserRouter>
         <Leva
+          // hidden={true}
           collapsed={false}
           oneLineLabels={false}
           flat={true}
