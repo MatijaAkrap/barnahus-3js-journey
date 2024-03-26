@@ -23,17 +23,16 @@ const MascotBreathingExciresize = () => {
     )[0]
     actionsMascotBreathingExciresize?.play()
 
-    // console.log('animationsMascotRoom', animationsMascotRoom)
-    const actionsMascotRoom = animationsMascotRoom.actions['Armature.003Action.002']
-    console.log('actionsMascotRoom4', actionsMascotRoom)
-    actionsMascotRoom?.play()
-    const actionsMascotRoom2 = animationsMascotRoom.actions['Closed Eyes DownAction']
-    console.log('actionsMascotRoom4', actionsMascotRoom2)
-    actionsMascotRoom2?.play()
+    console.log('animationsMascotRoom', animationsMascotRoom)
+    // const actionsMascotRoom = animationsMascotRoom.actions['Armature.003Action.002']
+    // console.log('actionsMascotRoom4', actionsMascotRoom)
+    // actionsMascotRoom?.play()
+    // const actionsMascotRoom2 = animationsMascotRoom.actions['Closed Eyes DownAction']
+    // console.log('actionsMascotRoom4', actionsMascotRoom2)
+    // actionsMascotRoom2?.play()
     // const actionsMascotRoom3 = animationsMascotRoom.actions['Ears']
     // actionsMascotRoom3?.play()
-    const actionsMascotRoom4 = animationsMascotRoom.actions['Body.004Action']
-    console.log('actionsMascotRoom4', actionsMascotRoom4)
+    const actionsMascotRoom4 = animationsMascotRoom.actions['Mascote Animation']
     actionsMascotRoom4?.play()
     // const actionsMascotRoom5 = animationsMascotRoom.actions['Mouth Close']
     // actionsMascotRoom5?.play()
@@ -82,7 +81,6 @@ const MascotBreathingExciresize = () => {
   //   'Mascot Face - Breathing',
   //   mascotBreathingExciresize.materials['Mascot Face - Breathing']
   // )
-  console.log('Mascot Face - Breathing', mascotRoom)
   // console.log('Mascot White.001', mascotBreathingExciresize.materials['Mascot White.001'])
   // console.log('Mascot White.001', mascotBreathingExciresize)
   return (
