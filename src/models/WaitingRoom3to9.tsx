@@ -63,12 +63,21 @@ function WaitingRoom3to9() {
   const bakedTexture = useTexture('./textures/waitingRoom3to9.jpg')
   bakedTexture.flipY = false
   const { nodes }: any = useGLTF('./scene/waitingRoom3to9.glb')
+  const mascotRoom: any = useGLTF('./scene/mascotRoom.glb')
 
   console.log('nodes', nodes)
   return (
-    <mesh position={[0, -2, 0]} geometry={nodes.Cube994.geometry}>
-      <meshBasicMaterial map={bakedTexture} />
-    </mesh>
+    <>
+      <mesh position={[0, -2, 0]} geometry={nodes.Cube994.geometry}>
+        <meshBasicMaterial map={bakedTexture} />
+      </mesh>
+      <primitive
+        scale={0.2}
+        position={[0, -0.9, -6]}
+        // position={[0, -10, -120]}
+        object={mascotRoom.scene}
+      />
+    </>
   )
 }
 

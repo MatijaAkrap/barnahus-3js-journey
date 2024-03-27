@@ -23,18 +23,15 @@ const MascotBreathingExciresize = () => {
     )[0]
     actionsMascotBreathingExciresize?.play()
 
-    console.log('animationsMascotRoom', animationsMascotRoom)
+    console.log(
+      'actionsMascotBreathingExciresize',
+      Object.values(animationsMascotBreathingExciresize.actions)
+    )
     // const actionsMascotRoom = animationsMascotRoom.actions['Armature.003Action.002']
     // console.log('actionsMascotRoom4', actionsMascotRoom)
     // actionsMascotRoom?.play()
-    const actionsMascotRoom2 = animationsMascotRoom.actions['Armature.006Action']
+    const actionsMascotRoom2 = animationsMascotRoom.actions['Hop']
     actionsMascotRoom2?.play()
-    const actionsMascotRoom3 = animationsMascotRoom.actions['ArmatureAction.001']
-    actionsMascotRoom3?.play()
-    const actionsMascotRoom4 = animationsMascotRoom.actions['Cube.987Action']
-    actionsMascotRoom4?.play()
-    const actionsMascotRoom5 = animationsMascotRoom.actions['Cylinder.1618Action']
-    actionsMascotRoom5?.play()
     // const actionsMascotRoom6 = animationsMascotRoom.actions['Tail']
     // actionsMascotRoom6?.play()
 
@@ -86,16 +83,18 @@ const MascotBreathingExciresize = () => {
     <>
       <ambientLight intensity={2} />
       {/* <pointLight castShadow intensity={0.05} /> */}
-      <primitive
+      {/* <primitive
         scale={0.2}
         // position={[0, -10, -120]}
         object={mascotRoom.scene}
-      />
-      {/* <primitive
-        scale={0.2}
-        position={[1, -1, 0]}
-        object={mascotBreathingExciresize.scene}
       /> */}
+      <primitive
+        scale={0.6}
+        position={[0, 0, 0]}
+        rotation-y={2.3}
+        rotation-x={2.3}
+        object={mascotBreathingExciresize.scene}
+      />
       {/* <primitive
         scale={0.02}
         position={[-1, -1, 0]}
