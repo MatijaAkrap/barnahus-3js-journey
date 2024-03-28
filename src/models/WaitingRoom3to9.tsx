@@ -57,25 +57,69 @@
 
 // useGLTF.preload('./scene/waitingRoom3to9.glb')
 
-import { useGLTF, useTexture } from '@react-three/drei'
+import { useAnimations, useGLTF, useHelper, useTexture } from '@react-three/drei'
+import { useControls } from 'leva'
+import { useRef } from 'react'
+import { DirectionalLightHelper } from 'three'
+import { showCursorPointer, hideCursorPointer } from '../util/handleCursorPointer'
 
 function WaitingRoom3to9() {
   const bakedTexture = useTexture('./textures/waitingRoom3to9.jpg')
   bakedTexture.flipY = false
   const { nodes }: any = useGLTF('./scene/waitingRoom3to9.glb')
   const mascotRoom: any = useGLTF('./scene/mascotRoom.glb')
+  const animationsMascotRoom = useAnimations(mascotRoom.animations, mascotRoom.scene)
+  const actionsMascotRoom = animationsMascotRoom.actions['Hop']
+  const directionalLight: any = useRef()
+  useHelper(directionalLight, DirectionalLightHelper, 2, 'red')
 
-  console.log('nodes', nodes)
+  const handleMascotAnimations = () => {
+    if (!actionsMascotRoom?.isRunning()) {
+      actionsMascotRoom?.play()
+      setTimeout(() => {
+        actionsMascotRoom?.stop()
+      }, 850)
+    }
+  }
+
   return (
     <>
-      <mesh position={[0, -2, 0]} geometry={nodes.Cube994.geometry}>
+      {/* <ambientLight intensity={1.8} /> */}
+      <directionalLight
+        castShadow
+        ref={directionalLight}
+        position={[0, 2, 10]}
+        rotation-y={2.3}
+        rotation-x={2.3}
+        intensity={2}
+        // shadow-mapSize-width={1024}
+        // shadow-mapSize-height={1024}
+        // shadow-camera-near={6}
+        // shadow-camera-far={10}
+        // shadow-camera-top={2}
+        // shadow-camera-bottom={-2}
+        // shadow-camera-left={-2}
+        // shadow-camera-right={2}
+      />
+      <mesh
+        receiveShadow
+        castShadow
+        position={[0, -2, 0]}
+        geometry={nodes.Cube994.geometry}
+      >
         <meshBasicMaterial map={bakedTexture} />
+        {/* <meshStandardMaterial map={bakedTexture} /> */}
       </mesh>
       <primitive
+        castShadow
+        receiveShadow
         scale={0.2}
-        position={[0, -0.9, -6]}
+        position={[-0.1, -0.95, -6.5]}
         // position={[0, -10, -120]}
         object={mascotRoom.scene}
+        onClick={handleMascotAnimations}
+        onPointerOver={showCursorPointer}
+        onPointerOut={hideCursorPointer}
       />
     </>
   )

@@ -1,6 +1,6 @@
 import { useGLTF, useTexture } from '@react-three/drei'
 
-function InterviewRoom3to9() {
+const InterviewRoom3to9 = () => {
   const bakedTexture = useTexture('./textures/interviewRoom3to9.jpg')
   bakedTexture.flipY = false
   const { nodes }: any = useGLTF('./scene/interviewRoom3to9.glb')
