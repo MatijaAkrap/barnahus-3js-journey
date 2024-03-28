@@ -6,7 +6,6 @@ import { useFrame } from '@react-three/fiber'
 import { useLocation } from 'react-router-dom'
 import { InterviewRoom10to17 } from '../models/InterviewRoom10to17'
 import { InterviewRoom3to9 } from '../models/InterviewRoom3to9'
-import MascotBreathingExciresize from '../models/MascotBreathingExciresize'
 import { MedicalRoom10to17 } from '../models/MedicalRoom10to17'
 import { MedicalRoom3to9 } from '../models/MedicalRoom3to9'
 import { ObservationRoom } from '../models/ObservationRoom'
@@ -64,6 +63,7 @@ const Playground = () => {
   }
 
   function handleRoomChangeFromFlutter(roomId: string, ageGroup: string) {
+    alert(roomId)
     setRoom(roomId)
     setAgeGroup(ageGroup)
   }
