@@ -63,7 +63,7 @@ const Playground = () => {
     }
   }
 
-  const handleRoomChangeFromFlutter = (roomId: string, ageGroup: string) => {
+  function handleRoomChangeFromFlutter(roomId: string, ageGroup: string) {
     setRoom(roomId)
     setAgeGroup(ageGroup)
   }
