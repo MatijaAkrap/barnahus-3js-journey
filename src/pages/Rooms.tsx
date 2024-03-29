@@ -13,8 +13,8 @@ import { TherapyRoom10to17 } from '../models/TherapyRoom10to17'
 import { TherapyRoom3to9 } from '../models/TherapyRoom3to9'
 import { WaitingRoom10to17 } from '../models/WaitingRoom10to17'
 import { WaitingRoom3to9 } from '../models/WaitingRoom3to9'
-import { RoomEnum } from '../enums/RoomEnum'
-import { AgeGroupEnum } from '../enums/AgeGroupEnum'
+import { RoomEnum } from '../common/enums/RoomEnum'
+import { AgeGroupEnum } from '../common/enums/AgeGroupEnum'
 
 const Rooms = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)

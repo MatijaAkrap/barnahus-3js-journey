@@ -1,5 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import CustomLoader from '../../components/CustomLoader'
 import Excercises from '../../pages/Excercises'
 import Hello from '../../pages/Hello'
 import Playground from '../../pages/Playground'
@@ -9,6 +10,7 @@ import { ROUTES } from './routes'
 const AppRouter = () => {
   return (
     <Router>
+      <CustomLoader />
       <Canvas>
         <Routes>
           <Route path={ROUTES.welcome} element={<Playground />} />
