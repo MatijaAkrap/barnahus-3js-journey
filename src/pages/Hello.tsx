@@ -1,5 +1,7 @@
+import { Text } from '@react-three/drei'
+
 const Hello = () => {
-  return <>Heloooo</>
+  return <Text>Heloooo</Text>
 }
 
 export default Hello
