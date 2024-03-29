@@ -62,17 +62,30 @@ const Rooms = () => {
     }
   }
 
-  function handleRoomChangeFromFlutter(roomId: string, ageGroup: string) {
+  const handleRoomChangeFromFlutter = (roomId: string, ageGroup: string) => {
     setRoom(roomId)
     setAgeGroup(ageGroup)
   }
 
+  const handleMessage = (event: any) => {
+    var receivedData = event.data
+
+    handleRoomChangeFromFlutter(receivedData.roomId, receivedData.ageGroup)
+  }
+
   useEffect(() => {
+    window.addEventListener('message', handleMessage)
+
     if (roomParam) {
       setRoom(roomParam)
     }
+
     if (ageGroupParam) {
       setAgeGroup(ageGroupParam)
+    }
+
+    return () => {
+      window.removeEventListener('message', handleMessage)
     }
   }, [])
 
