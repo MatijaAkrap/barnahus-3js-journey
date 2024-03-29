@@ -1,4 +1,5 @@
 import { Leva } from 'leva'
+import CustomLoader from './components/CustomLoader'
 import AppRouter from './services/routes/Router'
 
 const Experience = () => {
@@ -18,6 +19,7 @@ const Experience = () => {
           },
         }}
       />
+      <CustomLoader />
       <AppRouter />
     </>
   )
