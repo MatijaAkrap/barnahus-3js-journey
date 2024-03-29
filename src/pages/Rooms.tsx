@@ -16,6 +16,10 @@ import { WaitingRoom3to9 } from '../models/WaitingRoom3to9'
 import { RoomEnum } from '../common/enums/RoomEnum'
 import { AgeGroupEnum } from '../common/enums/AgeGroupEnum'
 
+interface CustomWindow extends Window {
+  handleRoomChangeFromFlutter?: Function
+}
+
 const Rooms = () => {
   const orbitControlsRef = useRef<OrbitControlsImpl>(null)
   const cameraRef = useRef<any>(null)
@@ -67,14 +71,8 @@ const Rooms = () => {
     setAgeGroup(ageGroup)
   }
 
-  const handleMessage = (event: any) => {
-    var receivedData = event.data
-
-    handleRoomChangeFromFlutter(receivedData.roomId, receivedData.ageGroup)
-  }
-
   useEffect(() => {
-    window.addEventListener('message', handleMessage)
+    ;(window as CustomWindow).handleRoomChangeFromFlutter = handleRoomChangeFromFlutter
 
     if (roomParam) {
       setRoom(roomParam)
@@ -82,10 +80,6 @@ const Rooms = () => {
 
     if (ageGroupParam) {
       setAgeGroup(ageGroupParam)
-    }
-
-    return () => {
-      window.removeEventListener('message', handleMessage)
     }
   }, [])
 
