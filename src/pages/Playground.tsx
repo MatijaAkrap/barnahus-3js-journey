@@ -1,5 +1,4 @@
 import { OrbitControls } from '@react-three/drei'
-import { Perf } from 'r3f-perf'
 import { PerspectiveCamera } from '@react-three/drei'
 import { useRef, useState } from 'react'
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
@@ -22,30 +21,28 @@ const Rooms = () => {
   const cameraRef = useRef<any>(null)
   const [room, setRoom] = useState('/waitingRoom3to9')
   const location = useLocation()
-  const searchParams = new URLSearchParams(location.search)
-  // const navigate = useNavigate()
+  // const searchParams = new URLSearchParams(location.search)
 
-  useControls({
-    Room: {
-      value: '/waitingRoom3to9',
-      options: [
-        '/waitingRoom3to9',
-        '/waitingRoom10to17',
-        '/therapyRoom3to9',
-        '/therapyRoom10to17',
-        '/medicalRoom3to9',
-        '/medicalRoom10to17',
-        '/interviewRoom3to9',
-        '/interviewRoom10to17',
-        '/observationRoom',
-        '/mascotBreathingExciresize',
-      ],
-      onChange: (value) => {
-        setRoom(value)
-        // navigate(value)
-      },
-    },
-  })
+  // useControls({
+  //   Room: {
+  //     value: '/waitingRoom3to9',
+  //     options: [
+  //       '/waitingRoom3to9',
+  //       '/waitingRoom10to17',
+  //       '/therapyRoom3to9',
+  //       '/therapyRoom10to17',
+  //       '/medicalRoom3to9',
+  //       '/medicalRoom10to17',
+  //       '/interviewRoom3to9',
+  //       '/interviewRoom10to17',
+  //       '/observationRoom',
+  //       '/mascotBreathingExciresize',
+  //     ],
+  //     onChange: (value) => {
+  //       setRoom(value)
+  //     },
+  //   },
+  // })
 
   useFrame(() => {
     const controls = orbitControlsRef.current
@@ -66,15 +63,13 @@ const Rooms = () => {
 
   return (
     <>
-      <Perf position='top-left' />
+      {/* <Perf position='top-left' /> */}
       <OrbitControls
         makeDefault
-        // minPolarAngle={Math.PI / 2.1}
-        // maxPolarAngle={Math.PI / 2.1}
-        enableRotate={true}
-        // enableRotate={room !== '/mascotBreathingExciresize'}
-        // maxDistance={room === '/observationRoom' ? 7.9 : 5.9}
-        maxDistance={22}
+        minPolarAngle={Math.PI / 2.1}
+        maxPolarAngle={Math.PI / 2.1}
+        enableRotate={room !== '/mascotBreathingExciresize'}
+        maxDistance={room === '/observationRoom' ? 7.9 : 5.9}
         rotateSpeed={-0.3}
         ref={orbitControlsRef}
       />
@@ -85,11 +80,6 @@ const Rooms = () => {
             ? [0, 0, 4]
             : [4, 0, room === '/observationRoom' ? 6.9 : 4.4]
         }
-        // position={
-        //   cameraPostionControls.EnebleCameraPositionControl
-        //     ? [0, 0, cameraPostionControls.CameraOnCenter]
-        //     : [4, 0, room === '/observationRoom' ? 6.9 : 4.4]
-        // }
         near={1}
         far={50}
         ref={cameraRef}
@@ -104,11 +94,6 @@ const Rooms = () => {
       {room === '/interviewRoom10to17' && <InterviewRoom10to17 />}
       {room === '/observationRoom' && <ObservationRoom />}
       {room === '/mascotBreathingExciresize' && <MascotBreathingExciresize />}
-      {/* <Routes>
-          <Route path='/' element={<WaitingRoom3to9 />} />
-          <Route path='/waitingRoom3to9' element={<WaitingRoom3to9 />} />
-          <Route path='/waitingRoom10to17' element={<WaitingRoom10to17 />} />
-        </Routes> */}
     </>
   )
 }
